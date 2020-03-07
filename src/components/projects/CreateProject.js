@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createProject } from '../../store/actions/projectActions';
 
 class CreateProject extends Component {
     state = {
@@ -17,7 +19,8 @@ class CreateProject extends Component {
     handleSubmit = (e) => {
         // console.log(e)
         e.preventDefault();
-        console.log(this.state);
+        // console.log(this.state);
+        this.props.createProject(this.state)
     }
 
     render() {
@@ -43,4 +46,10 @@ class CreateProject extends Component {
     }
 }
 
-export default CreateProject;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createProject: (project) => dispatch(createProject(project))
+    }
+}
+// The first parameter in connect is mapStateToProps!!!!!
+export default connect(null, mapDispatchToProps)(CreateProject);
