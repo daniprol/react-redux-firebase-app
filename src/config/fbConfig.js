@@ -2,8 +2,10 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore' // this is the database
 import 'firebase/auth'
+import 'firebase/analytics'
 
-var firebaseConfig = {
+
+export const firebaseConfig = {
     apiKey: "AIzaSyBH1i2XLRPt3-8m5acHzQrV4Pmyx6SgHqg",
     authDomain: "redux-marioplan-69bb1.firebaseapp.com",
     databaseURL: "https://redux-marioplan-69bb1.firebaseio.com",
@@ -16,6 +18,7 @@ var firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-  firebase.firestore().settings({ timestampsInSnapshots: true })
+//   firebase.firestore().settings({ timestampsInSnapshots: true })
+  firebase.firestore()
 
   export default firebase;
